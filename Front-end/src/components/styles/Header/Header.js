@@ -12,10 +12,10 @@ export const Header = styled.div`
  min-width:100%;
  width:99.6%;
 margin: 1px auto;
-background-color: #f4f4f4;
+background-color: #e71016;
 
 border-radius: 0px 0px 10px 10px;
-color: #0abde3;
+color: white;
 display:flex;
 align-items:center;
 /* justify-content:center; */
@@ -30,23 +30,25 @@ div{
 
 }
 h1{
-  padding:20rem auto;
+  padding:2rem auto;
   font-size:35px;
 font-weight:900;
-margin: 80px 10px 100px 0%;
+margin: 100px 10px 100px 0%;
 
 padding: 8rem 0rem 8rem 1rem; 
-font-family: DyeLine;
+font-family: HEROIC AVENGER;
 }
 h4{
-  font-family: Simplifica;
+  font-family: HEROIC AVENGER;
+  margin: 150px 10px 100px 0%;
 }
 button{
       flex:0.2;
 font-weight:800;
-  margin-left: 5vw;
+  margin-left: 2vw;
       width: 2vw;
-      color: #969696;
+      color: white;
+      margin-right: 1vw;
 /* box-shadow:0 0 3px 0.2px rgba(0, 0, 0, 0.2); */
 
 

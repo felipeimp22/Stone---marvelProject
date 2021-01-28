@@ -8,6 +8,7 @@ margin-top:30px;
   flex-direction:column;
 
   /* max-width:700px; */
+
 background: #FFF;
 border-radius: 4px;
 box-shadow:0 0 1px 0.5px rgb(10, 200, 232,0.2);

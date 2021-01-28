@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
+import './Login.css';
+
 import axios from 'axios'
 import { useHistory, Link } from 'react-router-dom';
 import StoreContext from 'components/Store/Context';
 import UIButton from 'components/UI/Button/Button';
-
-import './Login.css';
+import * as openingMarvel from '../../../assets/openingMarvel.mp4'
+import * as Marvel from '../../../assets/marvelWhite.png'
 
 function initialState() {
   return { user: '', password: '' };
@@ -21,29 +23,24 @@ async function login({ user, password }) {
   else if (user && password) {
 
     try {
-      const result = await axios.post('http://localhost:3001/sessions', {
+      const result = await axios.post('http://localhost:3333/sessions', {
         email: user,
         password: password
       })
-
 
       await Promise.all([result]).then((values) => {
 
         Logintoken.push(`${values[0].data.token}`)
         Logintoken.splice(1)
         Loginemail.push(`${values[0].data.user.email}`)
-
         Loginemail.splice(1)
 
-
-
-
-
-
-
-
       });
-    } catch (e) { if (e) { console.log(e) } }
+    } catch (e) { 
+      Logintoken.splice(0)
+      Loginemail.splice(0)
+      return { error: 'Usuário ou senha inválido' }
+     }
   }
 
   return { error: 'Usuário ou senha inválido' };
@@ -88,8 +85,11 @@ const UserLogin = () => {
   }
 
   return (
+    <>
+
     <div className="user-login">
-      <h1 className="userLoginTitle">Acessar o Sistema</h1>
+      
+      <h1 className="userLoginTitle"><img style={{width:180, height:60}} src={Marvel} alt="avengers-font" border="0"/></h1>
       <form onSubmit={onSubmit}>
         <div className="userLoginFormControl">
           <label htmlFor="user">Usuário</label>
@@ -125,8 +125,16 @@ const UserLogin = () => {
           Entrar
         </UIButton>
       </form>
+
       <Link style={{ color: "rgb(124, 124, 124)" }} to={"/register"}>Criar conta</Link>
+
     </div>
+    {/* <video className="opening" autoPlay="autoPlay" loop="loop" muted > */}
+
+      {/* <source  src={openingMarvel} />
+      </video> */}
+      </>
+    
   );
 };
 

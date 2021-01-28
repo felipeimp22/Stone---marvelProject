@@ -5,8 +5,8 @@ import authConfig from '../../config/auth';
 
 class SessionController {
   async store(req, res) {
+
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
       email: Yup.string()
         .email()
         .required(),
@@ -24,11 +24,10 @@ class SessionController {
     if (!(await user.checkPassword(password))) {
       return res.status(401).json({ error: 'password does not match' });
     }
-    const { id, name } = user;
+    const { id } = user;
     return res.json({
       user: {
         id,
-        name,
         email,
       },
       token: jwt.sign({ id }, authConfig.secret, {

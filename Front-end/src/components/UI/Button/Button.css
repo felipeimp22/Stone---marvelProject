@@ -19,24 +19,30 @@
 
 .ui-button--bordered-green {
   padding: 7px 10px;
-  border-color: #4ce166;
-  color: #4ce166;
+  border-color: #ff0000;
+  color: #ff0000;
   border: 2px solid;
+  opacity: 0.5;
 }
 
 .ui-button--bordered-green:hover {
-  background-color: #4ce166;
+  background-color: #ff0000;
+  opacity: 1;
+
   color: #fff;
 }
 
 
 .ui-button--contained-green {
-  background-color: #4ce166;
+  background-color: #ff0000;
   color: #fff;
+  opacity: 0.2;
 }
 
 .ui-button--contained-green:hover {
-  background-color: #23a038;
-  border-color: #23a038;
+  background-color: #ff0000;
+  border-color: #9c0404;
+  opacity: 0.8;
+
   color: #fff;
 }

@@ -8,6 +8,7 @@ import StoreProvider from 'components/Store/Provider';
 import RoutesPrivate from 'components/Routes/Private/Private';
 import Home from './Home/Home';
 import Login from './Login/Login';
+import PagesSearchHeroes from './SearchHeroes/SearchHeroes'
 
 import PagesRegister from './Register/Register'
 const Routes = () => (
@@ -19,7 +20,10 @@ const Routes = () => (
 
         <Route path="/register" component={PagesRegister} />
 
-        <RoutesPrivate path="/" component={Home} />
+        <RoutesPrivate exact path="/" component={Home} />
+        
+        <RoutesPrivate path="/searchHeroes" component={PagesSearchHeroes} />
+
 
       </Switch>
     </StoreProvider>

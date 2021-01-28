@@ -7,7 +7,7 @@ const PagesRegister = () => (
 
    
     <Register />
-    <Link className="link" style={{ color: "#757575", marginLeft: "75vw" }} to="/">  Voltar</Link>
+    <Link className="link" style={{ color: "#757575", marginLeft: "60vw" }} to="/">  Voltar</Link>
   </div>
 );
 

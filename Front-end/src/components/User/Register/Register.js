@@ -3,13 +3,10 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import StoreContext from 'components/Store/Context';
 import UIButton from 'components/UI/Button/Button';
-
-let ok = false
+import * as vua from '../../../assets/uniforme.png'
 function initialState() {
   return { user: '', password: '' };
 }
-
-
 
 
 async function login({ user, password }) {
@@ -18,25 +15,13 @@ async function login({ user, password }) {
 
   }
   else if (user && password) {
-    console.log('----------->', user, password)
+    
     try {
-      const result = await axios.post('http://localhost:3001/users', {
+      // const result = await axios.post('http://localhost:3333/users', {
+        const result = await axios.post('https://a825d3b33a62.ngrok.io/users', {
         email: user,
         password: password,
-        bid: []
       })
-
-      await Promise.all([result]).then((values) => {
-        if (values) {
-
-          axios.post('http://localhost:3001/bid', {
-            email: values[0].data.email,
-            bid: 0
-          })
-        }
-
-
-      });
 
       if (result.status !== 200) {
         return { error: 'Usuário ou senha inválido' };
@@ -95,7 +80,7 @@ const Register = () => {
 
   return (
     <div className="user-login">
-      <h1 className="userLoginTitle">Cadastrar Usuario</h1>
+      <h1 className="userLoginTitle"><img style={{width:180, height:60}} src={vua} alt="avengers-font" border="0"/></h1>
       <form onSubmit={onSubmit}>
         <div className="userLoginFormControl">
           <label htmlFor="user">Usuário</label>
